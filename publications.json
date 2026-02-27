@@ -1,0 +1,18 @@
+{
+  "last_updated": "2026-02-22 00:00 UTC",
+  "author": "Joseph Helsing",
+  "total_citations": 0,
+  "h_index": 0,
+  "i10_index": 0,
+  "publications": [
+    {"title":"In-situ thermo-mechano-chemical transformation and consolidation of Sm-Co powders via a single-step route for bulk magnet fabrication","authors":"Gwalani, B., Malakar, A., Martin, A., Ishrak, F., Yu, A., Pole, M., Darsell, J., Wang, T., Helsing, J., Thornton, J., Lastovich, M.","year":"2025","venue":"Nature Communications","citations":0,"url":"https://pubmed.ncbi.nlm.nih.gov/40804238/","scholar_url":""},
+    {"title":"A distributed algorithm for solving large-scale p-median problems using expectation maximization","authors":"Gwalani, H., Helsing, J., Alshammari, S. M., Tiwari, C., Mikler, A.","year":"2024","venue":"PeerJ Computer Science","citations":0,"url":"https://peerj.com/articles/cs-2446/","scholar_url":""},
+    {"title":"Validation and Evaluation of Emergency Response Plans through Agent-Based Modeling and Simulation","authors":"Helsing, J., Gwalani, H., Alshammari, A., Mikler, A.","year":"2019","venue":"Winter Simulation Conference (WSC)","citations":0,"url":"https://ieeexplore.ieee.org/abstract/document/9004775","scholar_url":""},
+    {"title":"Disease Spread Simulation to Assess the Risk of Epidemics During the Global Mass Gathering of Hajj Pilgrimage","authors":"Alshammari, A., Gwalani, H., Helsing, J., Mikler, A.","year":"2019","venue":"Winter Simulation Conference (WSC)","citations":0,"url":"https://ieeexplore.ieee.org/abstract/document/9004669","scholar_url":""},
+    {"title":"A Method for Reducing the Severity of Epidemics by Allocating Vaccines According to Centrality","authors":"Drewniak, K., Helsing, J., Mikler, A.","year":"2014","venue":"ACM-BCB 2014","citations":0,"url":"https://doi.org/10.1145/2649387.2649409","scholar_url":""},
+    {"title":"Building an Effective Scaffolding Online Course: The Curriculum Design of the Introduction to UNIX/Linux Course","authors":"Cantu, B., Helsing, J., Moen, W.","year":"2014","venue":"E-Learn 2014","citations":0,"url":"","scholar_url":""},
+    {"title":"Teaching Tools, Applications, and Infrastructure for Digital Curation Through the use of a Virtual Lab","authors":"Helsing, J., Lewis, P., Warga, E.","year":"2013","venue":"iConference 2013 (Poster)","citations":0,"url":"","scholar_url":""},
+    {"title":"Scaffolding for Digital Curation Education: A One Week Unix Fundamentals Course","authors":"Helsing, J., Lewis, P., Moen, W. E., Salter, J.","year":"2013","venue":"ALISE 2013 (Poster)","citations":0,"url":"","scholar_url":""},
+    {"title":"Digital Curation and Data Management Capacity Building: Curricula and Workforce","authors":"Kim, J., Moen, W. E., Whitworth, C., Warga, E., Wakefield, J.S., Helsing, J., Halbert, M.","year":"2012","venue":"ALISE 2012 (Poster)","citations":0,"url":"","scholar_url":""}
+  ]
+}

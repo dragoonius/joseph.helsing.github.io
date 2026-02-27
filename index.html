@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joseph Helsing — Computer Science & Engineering</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f172a;--deep:#1e293b;--mid:#334155;--muted:#64748b;--soft:#94a3b8;--light:#cbd5e1;--snow:#f1f5f9;--white:#fafbfd;--blue:#3b82f6;--sky:#60a5fa;--indigo:#6366f1;--violet:#8b5cf6;--rose:#f43f5e;--teal:#14b8a6;--warm:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:1000;padding:.9rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s;background:rgba(250,251,253,.85);backdrop-filter:blur(15px);border-bottom:1px solid transparent}
+nav.scrolled{border-bottom-color:rgba(203,213,225,.4)}
+.nl{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.95rem;color:var(--ink)}.nl .acc{color:var(--blue)}
+.nk{display:flex;gap:2rem;list-style:none}
+.nk a{text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:500;transition:color .2s}.nk a:hover{color:var(--blue)}
+.mt{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}.mt span{width:20px;height:1.5px;background:var(--ink);transition:all .3s}
+
+.hero{min-height:100vh;display:flex;align-items:center;background:var(--white);position:relative}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(59,130,246,.04),transparent 50%),radial-gradient(circle at 10% 80%,rgba(99,102,241,.03),transparent 50%);pointer-events:none}
+.hc{max-width:1100px;margin:0 auto;padding:7rem 4rem 4rem;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center;z-index:2;position:relative}
+.ht{animation:fu .8s ease-out}@keyframes fu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hg{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);margin-bottom:1rem;letter-spacing:2px;text-transform:uppercase}
+.hn{font-family:'Fraunces',serif;font-size:3.6rem;font-weight:700;line-height:1.08;margin-bottom:.5rem;color:var(--ink)}
+.hn em{font-style:italic;color:var(--blue);font-weight:400}
+.hsub{font-size:1.05rem;color:var(--blue);font-weight:600;margin-bottom:1.2rem}
+.hti{font-size:1.05rem;color:var(--muted);font-weight:400;line-height:1.7;margin-bottom:2rem;max-width:540px}
+.hl{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.4rem;border-radius:6px;text-decoration:none;font-size:.82rem;font-weight:600;transition:all .2s}
+.bp{background:var(--blue);color:#fff;border:1.5px solid var(--blue)}.bp:hover{background:#2563eb;transform:translateY(-1px);box-shadow:0 4px 12px rgba(59,130,246,.25)}
+.bs{background:transparent;color:var(--ink);border:1.5px solid var(--light)}.bs:hover{border-color:var(--blue);color:var(--blue)}
+
+.hv{animation:fu .8s ease-out .2s both}
+.profile-photo{width:260px;height:260px;border-radius:20px;object-fit:cover;border:2px solid var(--snow);box-shadow:0 20px 50px rgba(15,23,42,.1);transition:all .3s}
+.profile-photo:hover{box-shadow:0 25px 60px rgba(15,23,42,.15);transform:translateY(-3px)}
+
+.research-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--snow)}
+.rtag{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:.3rem .7rem;border-radius:20px;background:rgba(59,130,246,.06);color:var(--blue);border:1px solid rgba(59,130,246,.1)}
+
+.sec{padding:5rem 4rem;max-width:1100px;margin:0 auto}
+.sh{margin-bottom:2.5rem}
+.sn{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;display:block}
+.stitle{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--ink)}
+
+.about-text{font-size:1rem;line-height:1.8;color:var(--mid);max-width:720px}
+.about-text p{margin-bottom:1rem}
+
+/* CARDS GRID */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--white);border:1px solid rgba(203,213,225,.4);border-radius:12px;padding:1.6rem;transition:all .3s}
+.card:hover{border-color:rgba(59,130,246,.2);box-shadow:0 8px 25px rgba(15,23,42,.06);transform:translateY(-3px)}
+.card-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.4rem}
+.card-value{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink);font-weight:600;line-height:1.3}
+
+/* TEACHING - featured */
+.teach-sec{background:var(--ink);padding:5rem 4rem;position:relative;overflow:hidden}
+.teach-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(59,130,246,.08),transparent 50%);pointer-events:none}
+.teach-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.teach-sec .stitle{color:var(--snow)}
+.teach-sec .sn{color:var(--sky)}
+.teach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.5rem}
+.teach-card{background:rgba(255,255,255,.04);border:1px solid rgba(203,213,225,.1);border-radius:10px;padding:1.4rem;transition:all .3s}
+.teach-card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.teach-inst{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--sky);text-transform:uppercase;letter-spacing:1px;margin-bottom:.6rem}
+.teach-code{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--soft);margin-bottom:.2rem}
+.teach-name{font-family:'Fraunces',serif;font-size:1rem;color:var(--snow);font-weight:600;line-height:1.3}
+
+/* PUBLICATIONS */
+.pub-sec{padding:5rem 4rem;background:linear-gradient(180deg,var(--white),var(--snow))}
+.pub-inner{max-width:1100px;margin:0 auto}
+.pub-stats{display:flex;gap:2rem;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted)}
+.pub-stats strong{color:var(--ink)}
+.pub-list{display:flex;flex-direction:column;gap:.8rem}
+.pub-item{background:#fff;border-radius:10px;padding:1.4rem 1.6rem;border:1px solid rgba(203,213,225,.3);transition:all .3s;display:grid;grid-template-columns:45px 1fr;gap:1rem;align-items:start}
+.pub-item:hover{border-color:rgba(59,130,246,.2);box-shadow:0 4px 20px rgba(15,23,42,.05);transform:translateX(3px)}
+.pub-yr{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);letter-spacing:1px;padding-top:.2rem}
+.pub-c h3{font-family:'Fraunces',serif;font-size:1rem;color:var(--ink);margin-bottom:.35rem;line-height:1.4}
+.pub-c h3 a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(203,213,225,.4)}.pub-c h3 a:hover{border-color:var(--blue)}
+.pub-a{font-size:.8rem;color:var(--muted);margin-bottom:.25rem;line-height:1.4}.pub-a strong{color:var(--ink);font-weight:600}
+.pub-v{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--soft);background:rgba(15,23,42,.03);display:inline-block;padding:.15rem .5rem;border-radius:3px}
+.pub-cite{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--blue);background:rgba(59,130,246,.06);padding:.12rem .45rem;border-radius:3px;margin-left:.3rem}
+.pub-note{text-align:center;margin-top:1.5rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted)}
+.pub-note a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:2rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1.5px;background:linear-gradient(to bottom,var(--blue),var(--light),transparent)}
+.ti{position:relative;margin-bottom:2.2rem;padding-left:1.8rem}
+.ti::before{content:'';position:absolute;left:-2.35rem;top:.4rem;width:9px;height:9px;border-radius:50%;background:var(--blue);border:2.5px solid var(--white);box-shadow:0 0 0 1.5px var(--blue)}
+.ti-date{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-bottom:.15rem}
+.ti-role{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--ink);font-weight:700;margin-bottom:.1rem}
+.ti-org{font-size:.92rem;color:var(--mid);font-weight:500;margin-bottom:.4rem}
+.ti-desc{font-size:.88rem;color:var(--muted);line-height:1.6;max-width:560px}
+
+/* AWARDS */
+.award-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.award-item{display:flex;align-items:flex-start;gap:.7rem;padding:1rem 1.2rem;background:#fff;border:1px solid rgba(203,213,225,.3);border-radius:8px;transition:all .2s}
+.award-item:hover{border-color:rgba(59,130,246,.15);box-shadow:0 3px 12px rgba(15,23,42,.04)}
+.award-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:.35rem}
+.award-text{font-size:.85rem;color:var(--mid);line-height:1.4}.award-text strong{color:var(--ink)}
+
+/* SERVICE */
+.service-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+.service-item{font-size:.85rem;color:var(--mid);padding:.6rem .8rem;background:rgba(59,130,246,.02);border:1px solid rgba(59,130,246,.06);border-radius:6px;line-height:1.4}
+
+/* FOOTER */
+.footer{background:var(--ink);padding:4rem 4rem 2rem}
+.footer-inner{max-width:1100px;margin:0 auto;text-align:center}
+.footer-cta{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--snow);margin-bottom:.6rem}
+.footer-sub{color:var(--soft);font-size:.95rem;margin-bottom:2rem}
+.footer-links{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
+.footer-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--soft);text-decoration:none;font-size:.85rem;padding:.5rem 1rem;border:1px solid rgba(203,213,225,.15);border-radius:6px;transition:all .2s}
+.footer-link:hover{color:var(--sky);border-color:var(--blue);background:rgba(59,130,246,.05)}
+.footer-bottom{border-top:1px solid rgba(203,213,225,.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted)}
+.footer-made{font-size:.72rem;color:var(--muted)}.footer-made span{color:var(--blue)}
+
+.fi{opacity:0;transform:translateY(20px);transition:all .6s ease-out}.fi.visible{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--white)}::-webkit-scrollbar-thumb{background:var(--light);border-radius:3px}
+
+/* TABLET */
+@media(max-width:1024px){
+.hc{grid-template-columns:1fr auto;gap:2.5rem;padding:6rem 3rem 3rem}
+.profile-photo{width:220px;height:220px}
+.cards,.teach-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+nav{padding:.7rem 1.2rem}
+.nk{position:fixed;top:0;right:-100%;width:70%;max-width:260px;height:100vh;background:rgba(250,251,253,.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:2rem;transition:right .3s;z-index:999;border-left:1px solid var(--light)}
+.nk.open{right:0}
+.nk a{font-size:1rem;color:var(--ink)}
+.mt{display:flex;z-index:1001}
+.hc{grid-template-columns:1fr;padding:5rem 1.5rem 2.5rem;text-align:center;gap:1.5rem}
+.hn{font-size:2.4rem}
+.hti{margin:0 auto 1.5rem;max-width:100%}
+.hl{justify-content:center}
+.hv{order:-1}
+.profile-photo{width:160px;height:160px;border-radius:16px}
+.research-tags{justify-content:center}
+.sec{padding:3rem 1.5rem}
+.stitle{font-size:1.7rem}
+.cards{grid-template-columns:1fr 1fr;gap:.6rem}
+.card{padding:1.2rem}
+.card-value{font-size:1rem}
+.teach-sec{padding:3rem 1.5rem}
+.teach-grid{grid-template-columns:1fr;gap:.6rem}
+.pub-sec{padding:3rem 1.5rem}
+.pub-stats{flex-wrap:wrap;gap:.6rem;font-size:.78rem}
+.pub-item{grid-template-columns:1fr;gap:.3rem;padding:1.1rem}
+.pub-yr{writing-mode:horizontal-tb;transform:none}
+.tl{padding-left:1.8rem}
+.ti{padding-left:1.3rem;margin-bottom:1.8rem}
+.ti::before{left:-2.1rem;width:7px;height:7px}
+.ti-role{font-size:1.1rem}
+.award-grid,.service-list{grid-template-columns:1fr}
+.footer{padding:3rem 1.5rem 1.5rem}
+.footer-cta{font-size:1.7rem}
+.footer-links{flex-direction:column;align-items:center;gap:.5rem}
+.footer-link{width:100%;max-width:260px;justify-content:center}
+.footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
+}
+
+@media(max-width:400px){
+.hc{padding:4.5rem 1rem 2rem}
+.hn{font-size:2rem}
+.profile-photo{width:130px;height:130px}
+.cards{grid-template-columns:1fr}
+.sec,.teach-sec,.pub-sec,.footer{padding:2.5rem 1rem 2rem}
+.stitle{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nb"><div class="nl">J<span class="acc">.</span>Helsing</div><ul class="nk"><li><a href="#about">About</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#publications">Publications</a></li><li><a href="#experience">Experience</a></li><li><a href="#awards">Awards</a></li><li><a href="#contact">Contact</a></li></ul><button class="mt" onclick="document.querySelector('.nk').classList.toggle('open')"><span></span><span></span><span></span></button></nav>
+
+<!-- HERO -->
+<section class="hero"><div class="hc"><div class="ht">
+<p class="hg">Computer Science & Engineering</p>
+<h1 class="hn">Joseph <em>Helsing</em></h1>
+<p class="hsub">Lecturer · Stevens Institute of Technology</p>
+<p class="hti">Computer scientist and educator specializing in computational epidemiology, modeling & simulation, and software engineering. Passionate about teaching programming, algorithms, and applied machine learning.</p>
+<div class="hl">
+<a href="https://www.linkedin.com/in/josephhelsing/" class="btn bp" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.064 2.064 0 1 1 0-4.128 2.064 2.064 0 0 1 0 4.128zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+<a href="https://scholar.google.com/citations?user=a1c7tYcAAAAJ" class="btn bs" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>Scholar</a>
+<a href="https://www.stevens.edu/profile/jhelsing" class="btn bs" target="_blank">Stevens Profile</a>
+</div>
+<div class="research-tags">
+<span class="rtag">Computational Epidemiology</span><span class="rtag">Modeling & Simulation</span><span class="rtag">GIS</span><span class="rtag">Applied Machine Learning</span><span class="rtag">Software Engineering</span>
+</div>
+</div>
+<div class="hv"><img src="photo.jpg" alt="Joseph Helsing" class="profile-photo" onerror="this.style.display='none'"></div>
+</div></section>
+
+<!-- ABOUT -->
+<section class="sec" id="about"><div class="sh fi"><span class="sn">About</span><h2 class="stitle">Background</h2></div>
+<div class="about-text fi">
+<p>I am a Lecturer in the Department of <strong>Electrical and Computer Engineering at Stevens Institute of Technology</strong>, where I teach courses in Python programming, C++, applied machine learning, and introductory programming. My research background is in <strong>computational epidemiology, agent-based modeling, and geographic information systems</strong>.</p>
+<p>My doctoral work at the <strong>University of North Texas</strong> focused on validating and evaluating emergency response plans through agent-based modeling and simulation. Before Stevens, I served as an Assistant Professor at <strong>Muhlenberg College</strong>, where I taught across the CS curriculum from introductory game programming to operating systems, and as a Lecturer at UNT.</p>
+<p>I am an active member of the <strong>ACM</strong> and the <strong>Alpha Chi National Honor Scholarship Society</strong>, and regularly review papers for conferences including ITiCSE and SIGCSE.</p>
+</div>
+<div class="cards fi" style="margin-top:2rem">
+<div class="card"><div class="card-label">Position</div><div class="card-value">Lecturer, ECE Dept · Stevens Institute of Technology</div></div>
+<div class="card"><div class="card-label">Education</div><div class="card-value">PhD, Computer Science & Engineering (UNT, 2018)</div></div>
+<div class="card"><div class="card-label">Research</div><div class="card-value">Computational Epidemiology & Agent-Based Modeling</div></div>
+<div class="card"><div class="card-label">Certification</div><div class="card-value">Professional Scrum Master™ I (PSM I)</div></div>
+<div class="card"><div class="card-label">Location</div><div class="card-value">Hoboken, NJ · Burchard 217</div></div>
+<div class="card"><div class="card-label">Member</div><div class="card-value">ACM · Alpha Chi National Honor Society</div></div>
+</div>
+</section>
+
+<!-- TEACHING -->
+<section class="teach-sec" id="teaching"><div class="teach-inner">
+<div class="sh fi"><span class="sn">Teaching</span><h2 class="stitle">Courses</h2></div>
+<div class="teach-grid">
+<div class="teach-card fi"><div class="teach-inst">Stevens Institute of Technology</div><div class="teach-code">AAI/CPE/EE 551</div><div class="teach-name">Engineering Programming: Python</div></div>
+<div class="teach-card fi"><div class="teach-inst">Stevens Institute of Technology</div><div class="teach-code">EE 553</div><div class="teach-name">Engineering Programming: C++</div></div>
+<div class="teach-card fi"><div class="teach-inst">Stevens Institute of Technology</div><div class="teach-code">AAI/CPE/EE 595</div><div class="teach-name">Applied Machine Learning</div></div>
+<div class="teach-card fi"><div class="teach-inst">Stevens Institute of Technology</div><div class="teach-code">ENGR 116</div><div class="teach-name">Intro to Programming & Algorithmic Thinking</div></div>
+<div class="teach-card fi"><div class="teach-inst">Muhlenberg College</div><div class="teach-code">CSI 220 / 305 / 310 / 350</div><div class="teach-name">Data Structures · Databases · PL · OS</div></div>
+<div class="teach-card fi"><div class="teach-inst">University of North Texas</div><div class="teach-code">CSCE 1030 / 2100 / 2110</div><div class="teach-name">CS I · Foundations I & II</div></div>
+</div>
+</div></section>
+
+<!-- PUBLICATIONS -->
+<section class="pub-sec" id="publications"><div class="pub-inner">
+<div class="sh fi"><span class="sn">Publications</span><h2 class="stitle">Research Output</h2></div>
+<div id="pub-stats" class="pub-stats fi"></div>
+<div class="pub-list" id="pub-list">
+<div class="pub-item fi" style="grid-template-columns:1fr;text-align:center"><div class="pub-c" style="color:var(--muted)">Loading publications...</div></div>
+</div>
+<p class="pub-note fi"><span id="pub-updated"></span>Full list on <a href="https://scholar.google.com/citations?user=a1c7tYcAAAAJ" target="_blank">Google Scholar</a></p>
+</div></section>
+
+<!-- EXPERIENCE -->
+<section class="sec" id="experience"><div class="sh fi"><span class="sn">Career</span><h2 class="stitle">Experience</h2></div>
+<div class="tl">
+<div class="ti fi"><div class="ti-date">2023 — Present</div><div class="ti-role">Lecturer</div><div class="ti-org">Stevens Institute of Technology · ECE Department</div><div class="ti-desc">Teaching Python, C++, Applied ML, and Intro Programming. ECE Outstanding Teaching Award (AY 2023-24). Active on Graduate Committee, Peer Teaching Evaluation, and Strategic Plan committees.</div></div>
+<div class="ti fi"><div class="ti-date">2020 — 2023</div><div class="ti-role">Assistant Professor</div><div class="ti-org">Muhlenberg College · Math & CS Department</div><div class="ti-desc">Taught full CS curriculum from introductory to upper-level courses. Faculty Sponsor of Myths and Mules. Served on hiring committees, academic judicial board, and colloquium committee.</div></div>
+<div class="ti fi"><div class="ti-date">2019 — 2020</div><div class="ti-role">Lecturer</div><div class="ti-org">University of North Texas · Computer Science</div><div class="ti-desc">Taught CS I, Foundations of Computing, Social Issues, and Engineering Ethics.</div></div>
+<div class="ti fi"><div class="ti-date">2015 — 2018</div><div class="ti-role">Teaching Fellow → PhD</div><div class="ti-org">University of North Texas · Computer Science</div><div class="ti-desc">Doctoral research on validation of emergency response plans through agent-based modeling. Outstanding Teaching Fellow Award 2015 & 2016.</div></div>
+</div></section>
+
+<!-- EDUCATION -->
+<section class="sec"><div class="sh fi"><span class="sn">Education</span><h2 class="stitle">Degrees</h2></div>
+<div class="tl">
+<div class="ti fi"><div class="ti-date">2018</div><div class="ti-role">PhD, Computer Science & Engineering</div><div class="ti-org">University of North Texas, Denton, TX</div><div class="ti-desc">Dissertation: Validation and Evaluation of Emergency Response Plans Through Agent-Based Modeling and Simulation</div></div>
+<div class="ti fi"><div class="ti-date">2013</div><div class="ti-role">MS, Computer Science & Engineering</div><div class="ti-org">University of North Texas, Denton, TX</div><div class="ti-desc">Focus Area: Computational Life Sciences</div></div>
+<div class="ti fi"><div class="ti-date">2010</div><div class="ti-role">BA, Computer Science</div><div class="ti-org">Austin College, Sherman, TX</div><div class="ti-desc">Philosophy Minor. Founded Computer Science and Robotics Club (CSAR), 2008.</div></div>
+</div></section>
+
+<!-- AWARDS -->
+<section class="sec" id="awards"><div class="sh fi"><span class="sn">Recognition</span><h2 class="stitle">Awards & Service</h2></div>
+<div class="award-grid fi">
+<div class="award-item"><div class="award-dot"></div><div class="award-text"><strong>ECE Outstanding Teaching Award</strong>, Stevens (AY 2023-2024)</div></div>
+<div class="award-item"><div class="award-dot"></div><div class="award-text"><strong>Community Engagement Service Award</strong>, 2023</div></div>
+<div class="award-item"><div class="award-dot"></div><div class="award-text"><strong>Outstanding Teaching Fellow</strong>, UNT CS Department, 2015 & 2016</div></div>
+<div class="award-item"><div class="award-dot"></div><div class="award-text"><strong>Professional Scrum Master™ I</strong> (PSM I), 2023</div></div>
+<div class="award-item"><div class="award-dot"></div><div class="award-text"><strong>Paper Reviewer</strong>: ITiCSE (2022–2024), SIGCSE TS (2024), IC2IT</div></div>
+<div class="award-item"><div class="award-dot"></div><div class="award-text"><strong>NJ Academy of Science Judge</strong>, 2022–2025</div></div>
+</div>
+<div class="sh fi" style="margin-top:3rem"><span class="sn">Service</span><h2 class="stitle">Committees</h2></div>
+<div class="service-list fi">
+<div class="service-item">ECE Peer Teaching Evaluation Committee</div>
+<div class="service-item">ECE Strategic Plan Committee</div>
+<div class="service-item">ECE Graduate Committee</div>
+<div class="service-item">Marketing & Alumni Committee Chair</div>
+<div class="service-item">Committee on Evaluation of Teaching Effectiveness</div>
+<div class="service-item">Stevens 3MT Competition Co-Host</div>
+<div class="service-item">SES Dean's Faculty Advisory Council</div>
+<div class="service-item">ECE Department Hiring Committee</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<section class="footer" id="contact"><div class="footer-inner">
+<h2 class="footer-cta fi">Get in Touch</h2>
+<p class="footer-sub fi">Office hours, collaboration, or student inquiries — reach out anytime.</p>
+<div class="footer-links fi">
+<a href="mailto:joseph.helsing@gmail.com" class="footer-link"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>joseph.helsing@gmail.com</a>
+<a href="https://www.linkedin.com/in/josephhelsing/" class="footer-link" target="_blank">LinkedIn</a>
+<a href="https://scholar.google.com/citations?user=a1c7tYcAAAAJ" class="footer-link" target="_blank">Google Scholar</a>
+<a href="https://www.stevens.edu/profile/jhelsing" class="footer-link" target="_blank">Stevens Profile</a>
+</div>
+<div class="footer-bottom"><div class="footer-copy">&copy; 2026 Joseph Helsing</div><div class="footer-made">Built with <span>&hearts;</span> and clean code</div></div>
+</div></section>
+
+<script>
+const n=document.getElementById('nb');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>50));
+const o=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('visible'),i*50);o.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fi').forEach(e=>o.observe(e));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();document.querySelector('.nk').classList.remove('open');const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+function hl(a){return a.replace(/(Joseph Helsing|Helsing, J\.|Helsing, J|J\. Helsing|J\. E\. Helsing|Helsing, J\. E\.)/gi,'<strong>$1</strong>')}
+
+fetch('publications.json')
+  .then(r=>r.json())
+  .then(data=>{
+    const stats=document.getElementById('pub-stats');
+    if(data.total_citations||data.h_index){
+      stats.innerHTML=`<span>Citations: <strong>${data.total_citations}</strong></span><span>h-index: <strong>${data.h_index}</strong></span><span>i10-index: <strong>${data.i10_index}</strong></span>`;
+    }
+    const list=document.getElementById('pub-list');
+    list.innerHTML=data.publications.map(p=>{
+      const titleHtml=p.url?`<a href="${p.url}" target="_blank">${p.title}</a>`:p.title;
+      const cite=p.citations>0?`<span class="pub-cite">${p.citations} cited</span>`:'';
+      return `<div class="pub-item fi"><div class="pub-yr">${p.year||'—'}</div><div class="pub-c"><h3>${titleHtml}${cite}</h3><p class="pub-a">${hl(p.authors)}</p>${p.venue?`<span class="pub-v">${p.venue}</span>`:''}</div></div>`;
+    }).join('');
+    const u=document.getElementById('pub-updated');
+    if(data.last_updated)u.textContent=`Last synced: ${data.last_updated}. `;
+    list.querySelectorAll('.fi').forEach(e=>o.observe(e));
+  })
+  .catch(()=>{
+    document.getElementById('pub-list').innerHTML='<div class="pub-item" style="grid-template-columns:1fr;text-align:center"><div class="pub-c" style="color:var(--muted)">Visit <a href="https://scholar.google.com/citations?user=a1c7tYcAAAAJ">Google Scholar</a> for publications.</div></div>';
+  });
+</script>
+</body>
+</html>
